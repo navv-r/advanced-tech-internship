@@ -451,10 +451,25 @@ button:disabled {
 
 @media (max-width: 768px) {
   .selected-card {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
+    display: grid;
+    grid-template-areas:
+      "text text"
+      "img  info";
+    grid-template-columns: 120px 1fr;
+    grid-template-rows: auto auto;
+    gap: 12px 16px;
   }
+
+  .selected-left    { grid-area: text; }
+  .selected-divider { display: none; }
+  .selected-middle  { grid-area: img; }
+  .selected-right   { grid-area: info; }
+
+  .selected-middle img {
+    width: 120px;
+    height: auto;
+  }
+}
 
   .selected-divider {
     display: none;
