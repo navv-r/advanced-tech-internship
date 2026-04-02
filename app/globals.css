@@ -469,44 +469,6 @@ button:disabled {
     width: 120px;
     height: auto;
   }
-}
-
-  .selected-divider {
-    display: none;
-  }
-
-  .selected-left {
-    width: 100%;
-  }
-
-  .selected-middle,
-  .selected-right {
-    display: flex;
-    flex: 1;
-  }
-
-  .selected-card .selected-middle,
-  .selected-card .selected-right {
-    flex-direction: row;
-  }
-
-  /* Image + info side by side below the text */
-  .selected-card {
-    display: grid;
-    grid-template-areas:
-      "text text"
-      "img  info";
-    grid-template-columns: auto 1fr;
-    grid-template-rows: auto auto;
-  }
-
-  .selected-left  { grid-area: text; }
-  .selected-middle { grid-area: img; }
-  .selected-right  { grid-area: info; }
-
-  .selected-middle img {
-    width: 110px;
-  }
 
   .selected-meta {
     flex-wrap: wrap;
