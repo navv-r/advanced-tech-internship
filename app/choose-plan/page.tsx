@@ -30,6 +30,7 @@ const faqs = [
 export default function ChoosePlanPage() {
   const [selectedPlan, setSelectedPlan] = useState<"yearly" | "monthly">("yearly")
   const [openFaq, setOpenFaq] = useState<number | null>(null)
+  const [showPayment, setShowPayment] = useState(false)
   const { user, openModal } = useAuth()
   const router = useRouter()
 
@@ -38,13 +39,51 @@ export default function ChoosePlanPage() {
       openModal("login")
       return
     }
-    // Stripe integration placeholder
-    alert(`Subscribing to ${selectedPlan} plan — integrate Stripe here!`)
+    setShowPayment(true)
   }
 
   return (
     <div className="choose-plan__page">
-      {/* TOP NAV — minimal, no sidebar */}
+
+      {/* PAYMENT MODAL */}
+      {showPayment && (
+        <div className="payment__overlay" onClick={() => setShowPayment(false)}>
+          <div className="payment__modal" onClick={(e) => e.stopPropagation()}>
+            <button className="payment__close" onClick={() => setShowPayment(false)}>×</button>
+            <h2 className="payment__title">Enter Payment Details</h2>
+            <p className="payment__subtitle">
+              {selectedPlan === "yearly" ? "Premium Plus Yearly — $99.99/year" : "Premium Monthly — $9.99/month"}
+            </p>
+
+            <div className="payment__field">
+              <label className="payment__label">Card Number</label>
+              <input className="payment__input" type="text" placeholder="1234 5678 9012 3456" maxLength={19} />
+            </div>
+
+            <div className="payment__row">
+              <div className="payment__field">
+                <label className="payment__label">Expiration Date</label>
+                <input className="payment__input" type="text" placeholder="MM / YY" maxLength={7} />
+              </div>
+              <div className="payment__field">
+                <label className="payment__label">CVC</label>
+                <input className="payment__input" type="text" placeholder="123" maxLength={3} />
+              </div>
+            </div>
+
+            <div className="payment__field">
+              <label className="payment__label">ZIP Code</label>
+              <input className="payment__input" type="text" placeholder="10001" maxLength={5} />
+            </div>
+
+            <button className="btn payment__submit">
+              {selectedPlan === "yearly" ? "Start 7-Day Free Trial" : "Subscribe Now"}
+            </button>
+          </div>
+        </div>
+      )}
+
+      {/* TOP NAV */}
       <div className="choose-plan__nav">
         <img src="/assets/logo.png" alt="Summarist" className="choose-plan__logo" />
       </div>
