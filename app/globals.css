@@ -1914,6 +1914,7 @@ section p {
 .choose-plan__hero--img {
   max-width: 340px;
   width: 100%;
+  height: auto;
 }
 
 .choose-plan__features {

@@ -14,7 +14,7 @@ const geistMono = Geist_Mono({
 })
 
 export const metadata: Metadata = {
-  title: "Summarist",
+  title: "Summarist Clone Project",
   description: "Gain more knowledge in less time",
 }
 
