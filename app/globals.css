@@ -2196,3 +2196,108 @@ section p {
     padding-right: 16px;
   }
 }
+
+/* ============================================
+   RESPONSIVE — ALL PAGES (max-width: 768px)
+   ============================================ */
+@media (max-width: 768px) {
+
+  /* NAVBAR */
+  .nav__list--mobile {
+    display: none;
+  }
+
+  .nav__img--mask {
+    max-width: 140px;
+  }
+
+  /* BOOK DETAIL PAGE */
+  .book-detail {
+    flex-direction: column-reverse;
+    gap: 24px;
+  }
+
+  .book-detail__right {
+    display: flex;
+    justify-content: center;
+  }
+
+  .book-detail__img {
+    width: 160px;
+  }
+
+  .book-detail__title {
+    font-size: 22px;
+  }
+
+  .book-detail__author {
+    font-size: 16px;
+  }
+
+  .book-detail__btns {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .book-detail__btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .book-detail__tags {
+    gap: 8px;
+  }
+
+  .book-detail__tag {
+    font-size: 13px;
+    padding: 4px 12px;
+  }
+
+  /* AUDIO PLAYER BAR */
+  .audio-player {
+    flex-direction: column;
+    height: auto;
+    padding: 12px 16px;
+    gap: 8px;
+  }
+
+  .audio-player__info {
+    min-width: unset;
+    width: 100%;
+  }
+
+  .audio-player__center {
+    width: 100%;
+  }
+
+  .audio-player__progress {
+    max-width: 100%;
+  }
+
+  .audio-player__title {
+    max-width: 100%;
+  }
+
+  /* push content up so audio player doesn't cover it */
+  .for-you__content {
+    padding-bottom: 180px;
+  }
+
+  /* SETTINGS & LIBRARY */
+  .settings__title {
+    font-size: 22px;
+  }
+
+  .settings__content {
+    max-width: 100%;
+  }
+
+  .settings__upgrade--btn {
+    max-width: 100%;
+  }
+
+  /* SEARCH BAR */
+  .search__wrapper {
+    width: 100%;
+  }
+}
