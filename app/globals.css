@@ -451,20 +451,50 @@ button:disabled {
 
 @media (max-width: 768px) {
   .selected-card {
-    grid-template-columns: 1fr;
-    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
   }
 
   .selected-divider {
     display: none;
   }
 
+  .selected-left {
+    width: 100%;
+  }
+
+  .selected-middle,
+  .selected-right {
+    display: flex;
+    flex: 1;
+  }
+
+  .selected-card .selected-middle,
+  .selected-card .selected-right {
+    flex-direction: row;
+  }
+
+  /* Image + info side by side below the text */
+  .selected-card {
+    display: grid;
+    grid-template-areas:
+      "text text"
+      "img  info";
+    grid-template-columns: auto 1fr;
+    grid-template-rows: auto auto;
+  }
+
+  .selected-left  { grid-area: text; }
+  .selected-middle { grid-area: img; }
+  .selected-right  { grid-area: info; }
+
   .selected-middle img {
-    margin: 0 auto;
+    width: 110px;
   }
 
   .selected-meta {
-    justify-content: center;
+    flex-wrap: wrap;
   }
 }
 
