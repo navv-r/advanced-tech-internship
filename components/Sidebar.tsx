@@ -61,8 +61,34 @@ export default function Sidebar() {
         <button className="sidebar__close" onClick={() => setMobileOpen(false)} aria-label="Close menu">
           <AiOutlineClose />
         </button>
-        </aside>
+
+        {/* LOGO */}
+        <div className="sidebar__logo--wrapper">
+          <Link href="/">
+            <Image src="/assets/logo.png" alt="Summarist" width={160} height={40} />
+          </Link>
+        </div>
+
+        {/* TOP NAV */}
+        <nav className="sidebar__nav">
+          {navItem("/for-you", <AiOutlineHome />, "For you")}
+          {navItem("/library", <BsBookmark />, "My Library")}
+          {navItem("#", <BiHighlight />, "Highlights", true)}
+          {navItem("#", <AiOutlineSearch />, "Search", true)}
+        </nav>
+
+        {/* BOTTOM NAV */}
+        <div className="sidebar__nav sidebar__nav--bottom">
+          {navItem("/settings", <AiOutlineSetting />, "Settings")}
+          {navItem("#", <BiHelpCircle />, "Help & Support", true)}
+          <button className="sidebar__nav--item sidebar__auth--btn" onClick={handleAuthAction}>
+            <span className="sidebar__nav--icon">
+              {user ? <AiOutlineLogout /> : <AiOutlineLogin />}
+            </span>
+            <span className="sidebar__nav--label">{user ? "Logout" : "Login"}</span>
+          </button>
+        </div>
+      </aside>
     </>
   )
 }
-
